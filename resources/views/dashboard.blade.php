@@ -23,7 +23,7 @@
             :class="{ '-ml-64': !sidebarOpen }">
             <div class="flex h-16 items-center justify-center border-b border-slate-200 px-6">
                 <a href="/" class="text-xl font-bold text-blue-600">Shift<span
-                        class="text-slate-800">Managerr</span></a>
+                        class="text-slate-800">Manager</span></a>
             </div>
             <nav class="mt-6 space-y-2">
                 <a href="{{ route('dashboard') }}"
