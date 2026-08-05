@@ -14,6 +14,9 @@ class DashboardController extends Controller
      */
     public function index()
     {
+        $currentUser = auth()->user();
+        $mySchedule = $currentUser ? $currentUser->schedules()->where('date', '>=', today())->with('shift')->orderBy('date', 'asc')->first() : null;
+
         // Eager load users with their schedule for today.
         // The schedule relationship will also eager load the shift details.
         $teamSchedules = User::with(['schedules' => function ($query) {
@@ -22,6 +25,6 @@ class DashboardController extends Controller
         ->orderBy('name') // Sort users by name
         ->get();
 
-        return view('dashboard', compact('teamSchedules'));
+        return view('dashboard', compact('teamSchedules', 'mySchedule'));
     }
 }

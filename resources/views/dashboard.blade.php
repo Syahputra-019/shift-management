@@ -126,8 +126,17 @@
                             </div>
                             <div class="ml-4">
                                 <h3 class="font-semibold text-slate-500">Jadwal Anda Berikutnya</h3>
-                                <p class="text-2xl font-bold text-slate-800">08:00 - 16:00</p>
-                                <p class="text-sm text-slate-500">Hari ini, Shift Pagi</p>
+                                @if(isset($mySchedule) && $mySchedule?->shift)
+                                    <p class="text-2xl font-bold text-slate-800">
+                                        {{ \Carbon\Carbon::parse($mySchedule->shift->start_time)->format('H:i') }} - {{ \Carbon\Carbon::parse($mySchedule->shift->end_time)->format('H:i') }}
+                                    </p>
+                                    <p class="text-sm text-slate-500">
+                                        {{ $mySchedule->date->isToday() ? 'Hari ini' : $mySchedule->date->format('d M Y') }}, Shift {{ $mySchedule->shift->name }}
+                                    </p>
+                                @else
+                                    <p class="text-2xl font-bold text-slate-800">-</p>
+                                    <p class="text-sm text-slate-500">Tidak ada jadwal mendatang</p>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -144,7 +153,7 @@
                             </div>
                             <div class="ml-4">
                                 <h3 class="font-semibold text-slate-500">Permintaan Tukar Shift</h3>
-                                <p class="text-2xl font-bold text-slate-800">2 <span
+                                <p class="text-2xl font-bold text-slate-800">0 <span
                                         class="text-base font-normal">Menunggu</span></p>
                                 <a href="#" class="mt-1 text-sm text-blue-600 hover:underline">Lihat Detail</a>
                             </div>
@@ -195,48 +204,43 @@
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-slate-200 bg-white">
-                                <tr>
-                                    <td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-slate-900">Andi
-                                        Saputra</td>
-                                    <td class="whitespace-nowrap px-6 py-4 text-sm text-slate-500">Pagi</td>
-                                    <td class="whitespace-nowrap px-6 py-4 text-sm text-slate-500">08:00 - 16:00</td>
-                                    <td class="whitespace-nowrap px-6 py-4 text-sm">
-                                        <span
-                                            class="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800">On
-                                            Shift</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-slate-900">Budi
-                                        Santoso</td>
-                                    <td class="whitespace-nowrap px-6 py-4 text-sm text-slate-500">Pagi</td>
-                                    <td class="whitespace-nowrap px-6 py-4 text-sm text-slate-500">08:00 - 16:00</td>
-                                    <td class="whitespace-nowrap px-6 py-4 text-sm">
-                                        <span
-                                            class="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800">On
-                                            Shift</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-slate-900">Citra
-                                        Lestari</td>
-                                    <td class="whitespace-nowrap px-6 py-4 text-sm text-slate-500">Sore</td>
-                                    <td class="whitespace-nowrap px-6 py-4 text-sm text-slate-500">16:00 - 00:00</td>
-                                    <td class="whitespace-nowrap px-6 py-4 text-sm">
-                                        <span
-                                            class="inline-flex rounded-full bg-gray-100 px-2 text-xs font-semibold leading-5 text-slate-800">Upcoming</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-slate-900">Dewi
-                                        Anggraini</td>
-                                    <td class="whitespace-nowrap px-6 py-4 text-sm text-slate-500">-</td>
-                                    <td class="whitespace-nowrap px-6 py-4 text-sm text-slate-500">-</td>
-                                    <td class="whitespace-nowrap px-6 py-4 text-sm">
-                                        <span
-                                            class="inline-flex rounded-full bg-red-100 px-2 text-xs font-semibold leading-5 text-red-800">Off</span>
-                                    </td>
-                                </tr>
+                                @forelse($teamSchedules as $employee)
+                                    @php
+                                        $todaySchedule = $employee->schedules->first();
+                                    @endphp
+                                    <tr>
+                                        <td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-slate-900">
+                                            {{ $employee->name }}
+                                        </td>
+                                        <td class="whitespace-nowrap px-6 py-4 text-sm text-slate-500">
+                                            {{ $todaySchedule?->shift?->name ?? '-' }}
+                                        </td>
+                                        <td class="whitespace-nowrap px-6 py-4 text-sm text-slate-500">
+                                            @if($todaySchedule?->shift)
+                                                {{ \Carbon\Carbon::parse($todaySchedule->shift->start_time)->format('H:i') }} - {{ \Carbon\Carbon::parse($todaySchedule->shift->end_time)->format('H:i') }}
+                                            @else
+                                                -
+                                            @endif
+                                        </td>
+                                        <td class="whitespace-nowrap px-6 py-4 text-sm">
+                                            @if($todaySchedule?->shift)
+                                                <span class="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800">
+                                                    On Shift
+                                                </span>
+                                            @else
+                                                <span class="inline-flex rounded-full bg-red-100 px-2 text-xs font-semibold leading-5 text-red-800">
+                                                    Off
+                                                </span>
+                                            @endif
+                                        </td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="4" class="px-6 py-4 text-center text-sm text-slate-500">
+                                            Belum ada data karyawan / jadwal hari ini.
+                                        </td>
+                                    </tr>
+                                @endforelse
                             </tbody>
                         </table>
                     </div>
