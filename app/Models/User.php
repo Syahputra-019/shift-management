@@ -22,6 +22,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'department',
+        'role',
+        'avatar_color',
     ];
 
     /**
@@ -53,5 +56,21 @@ class User extends Authenticatable
     public function schedules(): HasMany
     {
         return $this->hasMany(Schedule::class);
+    }
+
+    /**
+     * Get swap requests initiated by this user.
+     */
+    public function swapRequestsSent(): HasMany
+    {
+        return $this->hasMany(ShiftSwapRequest::class, 'requester_id');
+    }
+
+    /**
+     * Get swap requests targeted to this user.
+     */
+    public function swapRequestsReceived(): HasMany
+    {
+        return $this->hasMany(ShiftSwapRequest::class, 'target_user_id');
     }
 }
