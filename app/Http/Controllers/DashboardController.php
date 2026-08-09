@@ -108,6 +108,46 @@ class DashboardController extends Controller
     /**
      * Respond to a shift swap request (approve / reject)
      */
+    public function swapShiftPage(Request $request)
+    {
+        $currentUser = auth()->user();
+
+        $dateParam = $request->query('date', today()->toDateString());
+        try {
+            $selectedDate = Carbon::parse($dateParam);
+        } catch (\Exception $e) {
+            $selectedDate = today();
+        }
+
+        $selectedDateStr = $selectedDate->toDateString();
+
+        $teamSchedules = User::with(['schedules' => function ($query) use ($selectedDateStr) {
+            $query->where('date', $selectedDateStr)->with('shift');
+        }])
+        ->orderBy('name')
+        ->get();
+
+        $myUpcomingSchedule = $currentUser ? $currentUser->schedules()
+            ->where('date', '>=', today()->toDateString())
+            ->whereNotNull('shift_id')
+            ->with('shift')
+            ->orderBy('date', 'asc')
+            ->first() : null;
+
+        $swapRequests = ShiftSwapRequest::with([
+            'requester',
+            'targetUser',
+            'schedule.shift',
+            'targetSchedule.shift',
+        ])
+        ->orderBy('created_at', 'desc')
+        ->get();
+
+        $pendingSwapCount = $swapRequests->where('status', 'pending')->count();
+
+        return view('swap-shift', compact('teamSchedules', 'myUpcomingSchedule', 'selectedDate', 'swapRequests', 'pendingSwapCount'));
+    }
+
     public function respondSwapRequest(Request $request, $id)
     {
         $request->validate([
