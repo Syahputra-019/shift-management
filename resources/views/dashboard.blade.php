@@ -75,7 +75,7 @@
                             d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
                         </path>
                     </svg>
-                    <span>Jadwal Shift</span>
+                    <span>Jadwal Shiftt</span>
                 </a>
                 <a href="{{ route('swap-shift.index') }}"
                     class="flex items-center justify-between rounded-lg px-4 py-2.5 font-medium text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900">
