@@ -136,7 +136,7 @@
                         <p class="text-xs font-semibold text-slate-400 uppercase">Signed in as</p>
                         <p class="text-sm font-medium text-slate-800 truncate">{{ Auth::user()->email }}</p>
                     </div>
-                    <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Profil Saya</a>
+                    <a href="{{ route('profile.edit') }}" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Profil Saya</a>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <button type="submit" class="block w-full px-4 py-2 text-left text-sm text-red-600 hover:bg-red-50 font-medium">Log Out</button>
