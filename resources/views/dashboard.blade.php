@@ -77,7 +77,7 @@
                     </svg>
                     <span>Jadwal Shift</span>
                 </a>
-                <a href="{{ route('swap-shift.index') }}"
+                <a href="#" @click.prevent="swapModalOpen = true"
                     class="flex items-center justify-between rounded-lg px-4 py-2.5 font-medium text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900">
                     <div class="flex items-center">
                         <svg class="mr-3 h-5 w-5 text-slate-400" fill="none" stroke="currentColor"
@@ -173,7 +173,8 @@
                                 <p class="text-xs font-semibold uppercase text-slate-400">Signed in as</p>
                                 <p class="truncate text-sm font-medium text-slate-800">{{ Auth::user()->email }}</p>
                             </div>
-                            <a href="{{ route('profile.edit') }}" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Profil Saya</a>
+                            <a href="{{ route('profile.edit') }}"
+                                class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Profil Saya</a>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
                                 <button type="submit"
@@ -267,8 +268,8 @@
                     </div>
 
                     <!-- Widget 2: Permintaan Tukar Shift -->
-                    <a href="{{ route('swap-shift.index') }}"
-                        class="block rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-all hover:shadow-md">
+                    <a href="#" @click.prevent="swapModalOpen = true"
+                        class="block cursor-pointer rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-all hover:shadow-md">
                         <div class="flex items-center justify-between">
                             <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Tukar Shift</span>
                             <div class="rounded-xl bg-amber-50 p-2.5 text-amber-600">
@@ -660,7 +661,8 @@
                                         @foreach ($teamSchedules as $emp)
                                             @if ($emp->id !== Auth::id())
                                                 <option value="{{ $emp->id }}">{{ $emp->name }}
-                                                    ({{ $emp->department ?? 'Staff' }})</option>
+                                                    ({{ $emp->department ?? 'Staff' }})
+                                                </option>
                                             @endif
                                         @endforeach
                                     </select>
