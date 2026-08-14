@@ -46,7 +46,7 @@
 
     <div class="flex h-screen overflow-hidden">
         <!-- Sidebar -->
-        <aside class="w-64 flex-shrink-0 border-r border-slate-200 bg-white shadow-sm transition-all duration-300"
+        <aside class="w-64 shrink-0 border-r border-slate-200 bg-white shadow-sm transition-all duration-300"
             :class="{ '-ml-64': !sidebarOpen }">
             <div class="flex h-16 items-center justify-between border-b border-slate-100 px-6">
                 <a href="{{ route('dashboard') }}" class="flex items-center space-x-2">
@@ -206,7 +206,7 @@
 
                 <!-- Hero Welcome Banner with Live Time -->
                 <div
-                    class="relative mb-8 overflow-hidden rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-slate-900 p-6 text-white shadow-lg shadow-blue-500/10 lg:p-8">
+                    class="relative mb-8 overflow-hidden rounded-2xl bg-linear-to-r from-blue-600 via-indigo-600 to-slate-900 p-6 text-white shadow-lg shadow-blue-500/10 lg:p-8">
                     <div class="relative z-10 flex flex-col justify-between md:flex-row md:items-center">
                         <div>
                             <span
@@ -465,7 +465,7 @@
                                         <td class="whitespace-nowrap px-6 py-4">
                                             <div class="flex items-center space-x-3">
                                                 <div
-                                                    class="{{ $employee->avatar_color ?? 'bg-blue-600' }} flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl text-sm font-bold text-white shadow-sm">
+                                                    class="{{ $employee->avatar_color ?? 'bg-blue-600' }} flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-sm font-bold text-white shadow-sm">
                                                     {{ strtoupper(substr($employee->name, 0, 2)) }}
                                                 </div>
                                                 <div>
