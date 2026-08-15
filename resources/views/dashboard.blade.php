@@ -103,7 +103,7 @@
                     </svg>
                     <span>Karyawan</span>
                 </a>
-                <a href="#"
+                <a href="{{ route('reports.index') }}"
                     class="flex items-center rounded-lg px-4 py-2.5 font-medium text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900">
                     <svg class="mr-3 h-5 w-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
