@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ config('app.name', 'Shift-Management') }} - Karyawan</title>
+    <title>{{ config('app.name', 'Shift-Management') }} - Laporan</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -15,7 +15,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="bg-slate-50 font-sans text-slate-800 antialiased" x-data="{ sidebarOpen: true, searchQuery: '' }">
+<body class="bg-slate-50 font-sans text-slate-800 antialiased" x-data="{ sidebarOpen: true }">
 
     <div class="flex h-screen overflow-hidden">
         <!-- Sidebar -->
@@ -60,7 +60,6 @@
                         </svg>
                         <span>Tukar Shift</span>
                     </div>
-                    {{-- Placeholder for pending swap count --}}
                     {{-- @if (isset($pendingSwapCount) && $pendingSwapCount > 0)
                         <span
                             class="inline-flex items-center rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-800">
@@ -69,8 +68,8 @@
                     @endif --}}
                 </a>
                 <a href="{{ route('employees.index') }}"
-                    class="flex items-center rounded-lg bg-blue-50 px-4 py-2.5 font-semibold text-blue-600 transition-colors">
-                    <svg class="mr-3 h-5 w-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    class="flex items-center rounded-lg px-4 py-2.5 font-medium text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900">
+                    <svg class="mr-3 h-5 w-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M15 21a9 9 0 00-9-9">
                         </path>
@@ -78,8 +77,8 @@
                     <span>Karyawan</span>
                 </a>
                 <a href="{{ route('reports.index') }}"
-                    class="flex items-center rounded-lg px-4 py-2.5 font-medium text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900">
-                    <svg class="mr-3 h-5 w-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    class="flex items-center rounded-lg bg-blue-50 px-4 py-2.5 font-semibold text-blue-600 transition-colors">
+                    <svg class="mr-3 h-5 w-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
                         </path>
@@ -102,7 +101,7 @@
                         </svg>
                     </button>
                     <div>
-                        <h1 class="text-xl font-bold text-slate-900">Daftar Karyawan</h1>
+                        <h1 class="text-xl font-bold text-slate-900">Laporan</h1>
                     </div>
                 </div>
 
@@ -147,79 +146,32 @@
                 </div>
             </header>
 
-            <!-- Employee List Content -->
+            <!-- Reports Content -->
             <main class="flex-1 overflow-y-auto bg-slate-50 p-6 lg:p-8">
                 <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-                    <div
-                        class="flex flex-col space-y-3 border-b border-slate-100 bg-slate-50/50 px-6 py-3.5 md:flex-row md:items-center md:justify-between md:space-y-0">
+                    <div class="border-b border-slate-100 bg-slate-50/50 px-6 py-3.5">
                         <div>
-                            <h3 class="text-lg font-bold text-slate-900">Daftar Karyawan</h3>
-                            <p class="mt-0.5 text-xs text-slate-500">Manajemen data karyawan.</p>
-                        </div>
-                        <div class="relative w-full md:w-64">
-                            <input type="text" x-model="searchQuery" placeholder="Cari nama / departemen..."
-                                class="w-full rounded-xl border border-slate-200 bg-white py-1.5 pl-9 pr-4 text-xs font-medium text-slate-800 placeholder-slate-400 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500">
-                            <svg class="absolute left-3 top-2 h-4 w-4 text-slate-400" fill="none"
-                                stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                            </svg>
+                            <h3 class="text-lg font-bold text-slate-900">Halaman Laporan</h3>
+                            <p class="mt-0.5 text-xs text-slate-500">Fitur laporan sedang dalam pengembangan.</p>
                         </div>
                     </div>
 
-                    <div class="overflow-x-auto">
-                        <table class="min-w-full divide-y divide-slate-100 text-left text-sm">
-                            <thead class="bg-slate-50 text-xs font-bold uppercase tracking-wider text-slate-500">
-                                <tr>
-                                    <th scope="col" class="px-6 py-3.5">Nama Karyawan</th>
-                                    <th scope="col" class="px-6 py-3.5">Email</th>
-                                    <th scope="col" class="px-6 py-3.5">Departemen</th>
-                                    <th scope="col" class="px-6 py-3.5">Jabatan</th>
-                                    <th scope="col" class="px-6 py-3.5 text-right">Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-slate-100 bg-white">
-                                @forelse($employees as $employee)
-                                    <tr x-show="'{{ strtolower($employee->name) }}'.includes(searchQuery.toLowerCase()) ||
-                                                '{{ strtolower($employee->department ?? '') }}'.includes(searchQuery.toLowerCase()) ||
-                                                '{{ strtolower($employee->email) }}'.includes(searchQuery.toLowerCase())"
-                                        class="transition-colors hover:bg-slate-50/80">
-                                        <td class="whitespace-nowrap px-6 py-4">
-                                            <div class="flex items-center space-x-3">
-                                                <div
-                                                    class="{{ $employee->avatar_color ?? 'bg-blue-600' }} flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-sm font-bold text-white shadow-sm">
-                                                    {{ strtoupper(substr($employee->name, 0, 2)) }}
-                                                </div>
-                                                <div>
-                                                    <p class="font-semibold text-slate-900">{{ $employee->name }}</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="whitespace-nowrap px-6 py-4 text-xs text-slate-600">
-                                            {{ $employee->email }}
-                                        </td>
-                                        <td class="whitespace-nowrap px-6 py-4 text-xs text-slate-600">
-                                            {{ $employee->department ?? '-' }}
-                                        </td>
-                                        <td class="whitespace-nowrap px-6 py-4 text-xs text-slate-600">
-                                            {{ $employee->role ?? '-' }}
-                                        </td>
-                                        <td class="whitespace-nowrap px-6 py-4 text-right">
-                                            <a href="#"
-                                                class="text-xs font-semibold text-blue-600 hover:text-blue-800 hover:underline">
-                                                Lihat Detail
-                                            </a>
-                                        </td>
-                                    </tr>
-                                @empty
-                                    <tr>
-                                        <td colspan="5" class="px-6 py-8 text-center text-sm text-slate-500">
-                                            Tidak ada data karyawan.
-                                        </td>
-                                    </tr>
-                                @endforelse
-                            </tbody>
-                        </table>
+                    <div class="p-6">
+                        <div
+                            class="flex h-64 items-center justify-center rounded-lg border-2 border-dashed border-slate-200">
+                            <div class="text-center">
+                                <svg class="mx-auto h-12 w-12 text-slate-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                                    </path>
+                                </svg>
+                                <h3 class="mt-2 text-sm font-medium text-slate-900">Segera Hadir</h3>
+                                <p class="mt-1 text-sm text-slate-500">
+                                    Halaman untuk melihat dan mengunduh laporan akan tersedia di sini.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </main>
