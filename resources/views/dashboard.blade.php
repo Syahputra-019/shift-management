@@ -60,8 +60,9 @@
             </div>
             <nav class="mt-6 space-y-1.5 px-3">
                 <a href="{{ route('dashboard') }}"
-                    class="flex items-center rounded-lg bg-blue-50 px-4 py-2.5 font-semibold text-blue-600 transition-colors">
-                    <svg class="mr-3 h-5 w-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    class="{{ request()->routeIs('dashboard') ? 'bg-blue-50 font-semibold text-blue-600' : 'font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900' }} flex items-center rounded-lg px-4 py-2.5 transition-colors">
+                    <svg class="{{ request()->routeIs('dashboard') ? 'text-blue-600' : 'text-slate-400' }} mr-3 h-5 w-5"
+                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
                         </path>
@@ -69,8 +70,9 @@
                     <span>Dashboard</span>
                 </a>
                 <a href="{{ route('schedule.index') }}"
-                    class="flex items-center rounded-lg px-4 py-2.5 font-medium text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900">
-                    <svg class="mr-3 h-5 w-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    class="{{ request()->routeIs('schedule.*') ? 'bg-blue-50 font-semibold text-blue-600' : 'font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900' }} flex items-center rounded-lg px-4 py-2.5 transition-colors">
+                    <svg class="{{ request()->routeIs('schedule.*') ? 'text-blue-600' : 'text-slate-400' }} mr-3 h-5 w-5"
+                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
                         </path>
@@ -78,10 +80,10 @@
                     <span>Jadwal Shift</span>
                 </a>
                 <a href="{{ route('swap-shift.index') }}" @click.prevent="swapModalOpen = true"
-                    class="flex items-center justify-between rounded-lg px-4 py-2.5 font-medium text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900">
+                    class="{{ request()->routeIs('swap-shift.*') ? 'bg-blue-50 font-semibold text-blue-600' : 'font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900' }} flex items-center justify-between rounded-lg px-4 py-2.5 transition-colors">
                     <div class="flex items-center">
-                        <svg class="mr-3 h-5 w-5 text-slate-400" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24">
+                        <svg class="{{ request()->routeIs('swap-shift.*') ? 'text-blue-600' : 'text-slate-400' }} mr-3 h-5 w-5"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
                         </svg>
@@ -95,8 +97,9 @@
                     @endif
                 </a>
                 <a href="{{ route('employees.index') }}"
-                    class="flex items-center rounded-lg px-4 py-2.5 font-medium text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900">
-                    <svg class="mr-3 h-5 w-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    class="{{ request()->routeIs('employees.*') ? 'bg-blue-50 font-semibold text-blue-600' : 'font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900' }} flex items-center rounded-lg px-4 py-2.5 transition-colors">
+                    <svg class="{{ request()->routeIs('employees.*') ? 'text-blue-600' : 'text-slate-400' }} mr-3 h-5 w-5"
+                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M15 21a6 6 0 00-9-5.197m0 0A6.995 6.995 0 0012 12.75a6.995 6.995 0 00-3-5.197M15 21a9 9 0 00-9-9">
                         </path>
@@ -104,8 +107,9 @@
                     <span>Karyawan</span>
                 </a>
                 <a href="{{ route('reports.index') }}"
-                    class="flex items-center rounded-lg px-4 py-2.5 font-medium text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900">
-                    <svg class="mr-3 h-5 w-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    class="{{ request()->routeIs('reports.*') ? 'bg-blue-50 font-semibold text-blue-600' : 'font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900' }} flex items-center rounded-lg px-4 py-2.5 transition-colors">
+                    <svg class="{{ request()->routeIs('reports.*') ? 'text-blue-600' : 'text-slate-400' }} mr-3 h-5 w-5"
+                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
                         </path>
@@ -206,7 +210,7 @@
 
                 <!-- Hero Welcome Banner with Live Time -->
                 <div
-                    class="relative mb-8 overflow-hidden rounded-2xl bg-linear-to-r from-blue-600 via-indigo-600 to-slate-900 p-6 text-white shadow-lg shadow-blue-500/10 lg:p-8">
+                    class="bg-linear-to-r relative mb-8 overflow-hidden rounded-2xl from-blue-600 via-indigo-600 to-slate-900 p-6 text-white shadow-lg shadow-blue-500/10 lg:p-8">
                     <div class="relative z-10 flex flex-col justify-between md:flex-row md:items-center">
                         <div>
                             <span
