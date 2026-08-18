@@ -14,6 +14,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/swap-requests/{id}/respond', [DashboardController::class, 'respondSwapRequest'])->name('swap-requests.respond');
     Route::post('/swap-requests', [DashboardController::class, 'submitSwapRequest'])->name('swap-requests.store');
     Route::get('/employees', [EmployeeController::class, 'index'])->name('employees.index');
+    Route::get('/employees/{employee}/edit', [EmployeeController::class, 'edit'])->name('employees.edit');
+    Route::put('/employees/{employee}', [EmployeeController::class, 'update'])->name('employees.update');
+    Route::delete('/employees/{employee}', [EmployeeController::class, 'destroy'])->name('employees.destroy');
     Route::get('/reports', [ReportsController::class, 'index'])->name('reports.index');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

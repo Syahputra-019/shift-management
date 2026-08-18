@@ -70,19 +70,19 @@
                 </svg>
                 <span>Jadwal Shift</span>
             </a>
-            <a href="#" class="flex items-center rounded-lg px-4 py-2.5 font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors">
+            <a href="{{ route('swap-shift.index') }}" class="flex items-center rounded-lg px-4 py-2.5 font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors">
                 <svg class="h-5 w-5 mr-3 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
                 </svg>
                 <span>Tukar Shift</span>
             </a>
-            <a href="#" class="flex items-center rounded-lg px-4 py-2.5 font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors">
+            <a href="{{ route('employees.index') }}" class="flex items-center rounded-lg px-4 py-2.5 font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors">
                 <svg class="h-5 w-5 mr-3 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
                 </svg>
                 <span>Karyawan</span>
             </a>
-            <a href="#" class="flex items-center rounded-lg px-4 py-2.5 font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors">
+            <a href="{{ route('reports.index') }}" class="flex items-center rounded-lg px-4 py-2.5 font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors">
                 <svg class="h-5 w-5 mr-3 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
                 </svg>
@@ -307,8 +307,24 @@
                         <tbody class="divide-y divide-slate-50 bg-white">
                             @forelse($users as $user)
                                 @php $isMe = $user->id === Auth::id(); @endphp
-                                <tr x-show="
-                                    filterShift === 'all' &&
+                                @php
+                                    // Determine the dominant shift type for this user this week
+                                    $userShiftTypes = [];
+                                    foreach ($weekDays as $wDay) {
+                                        $wKey = $wDay->toDateString();
+                                        $wSched = $scheduleMatrix[$user->id][$wKey] ?? null;
+                                        if ($wSched && $wSched->shift) {
+                                            $wn = strtolower($wSched->shift->name);
+                                            if (str_contains($wn, 'pagi')) $userShiftTypes[] = 'pagi';
+                                            elseif (str_contains($wn, 'sore')) $userShiftTypes[] = 'sore';
+                                            elseif (str_contains($wn, 'malam')) $userShiftTypes[] = 'malam';
+                                        }
+                                    }
+                                    $hasAnyShift = !empty($userShiftTypes);
+                                    $userShiftTypesJson = json_encode(array_unique($userShiftTypes));
+                                @endphp
+                <tr x-show="
+                                    (filterShift === 'all' || {{ $userShiftTypesJson }}.includes(filterShift)) &&
                                     ('{{ strtolower($user->name) }}'.includes(searchQuery.toLowerCase()) ||
                                      '{{ strtolower($user->department ?? '') }}'.includes(searchQuery.toLowerCase()))"
                                     class="hover:bg-slate-50/60 transition-colors {{ $isMe ? 'bg-blue-50/20' : '' }}">
