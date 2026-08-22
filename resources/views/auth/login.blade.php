@@ -49,7 +49,7 @@
     <div class="relative flex min-h-screen overflow-hidden">
 
         <!-- Left Panel — Branding -->
-        <div class="relative hidden w-1/2 flex-col justify-between overflow-hidden bg-gradient-to-br from-blue-700 via-indigo-700 to-slate-900 p-12 lg:flex">
+        <div class="relative hidden w-1/2 flex-col justify-between overflow-hidden bg-linear-to-br from-blue-700 via-indigo-700 to-slate-900 p-12 lg:flex">
 
             <!-- Decorative blobs -->
             <div class="pointer-events-none absolute inset-0">
@@ -60,7 +60,7 @@
 
             <!-- Floating shift cards -->
             <div class="pointer-events-none absolute inset-0">
-                <div class="float-1 absolute left-12 top-1/4 rotate-[-6deg] rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm shadow-xl">
+                <div class="float-1 absolute left-12 top-1/4 -rotate-6 rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm shadow-xl">
                     <p class="text-[10px] font-semibold uppercase tracking-widest text-sky-300">Shift Pagi</p>
                     <p class="mt-1 text-xl font-bold text-white">06:00 — 14:00</p>
                     <p class="mt-0.5 text-xs text-blue-200">3 karyawan aktif</p>
@@ -70,7 +70,7 @@
                     <p class="mt-1 text-xl font-bold text-white">22:00 — 06:00</p>
                     <p class="mt-0.5 text-xs text-blue-200">2 karyawan aktif</p>
                 </div>
-                <div class="float-3 absolute right-8 top-16 rotate-[2deg] rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm shadow-xl">
+                <div class="float-3 absolute right-8 top-16 rotate-2 rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm shadow-xl">
                     <p class="text-[10px] font-semibold uppercase tracking-widest text-indigo-300">Shift Sore</p>
                     <p class="mt-1 text-xl font-bold text-white">14:00 — 22:00</p>
                     <p class="mt-0.5 text-xs text-blue-200">4 karyawan aktif</p>
@@ -136,7 +136,7 @@
                 @if ($errors->any())
                     <div class="fade-up fade-up-delay-1 mb-5 rounded-xl border border-rose-200 bg-rose-50 p-4">
                         <div class="flex items-start space-x-3">
-                            <svg class="mt-0.5 h-5 w-5 flex-shrink-0 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="mt-0.5 h-5 w-5 shrink-0 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
                             </svg>
                             <div>
@@ -161,7 +161,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"/>
                             </svg>
                             <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus
-                                class="w-full rounded-xl border border-slate-200 bg-slate-50 py-3 pl-11 pr-4 text-sm text-slate-900 placeholder-slate-400 transition-all focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-100 @error('email') border-rose-300 bg-rose-50 @enderror"
+                                class="w-full rounded-xl border border-slate-200 bg-slate-50 py-3 pl-11 pr-4 text-sm text-slate-900 placeholder-slate-400 transition-all focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-100 @error('email') @enderror"
                                 placeholder="nama@perusahaan.com">
                         </div>
                     </div>
