@@ -79,7 +79,7 @@
                     </svg>
                     <span>Jadwal Shift</span>
                 </a>
-                <a href="{{ route('swap-shift.index') }}" @click.prevent="swapModalOpen = true"
+                <a href="{{ route('swap-shift.index') }}"
                     class="{{ request()->routeIs('swap-shift.*') ? 'bg-blue-50 font-semibold text-blue-600' : 'font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900' }} flex items-center justify-between rounded-lg px-4 py-2.5 transition-colors">
                     <div class="flex items-center">
                         <svg class="{{ request()->routeIs('swap-shift.*') ? 'text-blue-600' : 'text-slate-400' }} mr-3 h-5 w-5"

@@ -70,15 +70,22 @@
                 </svg>
                 <span>Jadwal Shift</span>
             </a>
-            <a href="{{ route('swap-shift.index') }}" class="flex items-center rounded-lg px-4 py-2.5 font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors">
-                <svg class="h-5 w-5 mr-3 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
-                </svg>
-                <span>Tukar Shift</span>
+            <a href="{{ route('swap-shift.index') }}" class="flex items-center justify-between rounded-lg px-4 py-2.5 font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors">
+                <div class="flex items-center">
+                    <svg class="h-5 w-5 mr-3 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+                    </svg>
+                    <span>Tukar Shift</span>
+                </div>
+                @if (isset($pendingSwapCount) && $pendingSwapCount > 0)
+                    <span class="inline-flex items-center rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-800">
+                        {{ $pendingSwapCount }}
+                    </span>
+                @endif
             </a>
             <a href="{{ route('employees.index') }}" class="flex items-center rounded-lg px-4 py-2.5 font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors">
                 <svg class="h-5 w-5 mr-3 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M15 21a9 9 0 00-9-9"/>
                 </svg>
                 <span>Karyawan</span>
             </a>
