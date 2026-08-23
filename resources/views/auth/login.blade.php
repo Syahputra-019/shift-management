@@ -60,7 +60,7 @@
 
             <!-- Floating shift cards -->
             <div class="pointer-events-none absolute inset-0">
-                <div class="float-1 absolute left-12 top-1/4 -rotate-6 rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm shadow-xl">
+                <div class="float-1 absolute right-12 top-1/4 rotate-6 rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm shadow-xl">
                     <p class="text-[10px] font-semibold uppercase tracking-widest text-sky-300">Shift Pagi</p>
                     <p class="mt-1 text-xl font-bold text-white">06:00 — 14:00</p>
                     <p class="mt-0.5 text-xs text-blue-200">3 karyawan aktif</p>
@@ -70,7 +70,7 @@
                     <p class="mt-1 text-xl font-bold text-white">22:00 — 06:00</p>
                     <p class="mt-0.5 text-xs text-blue-200">2 karyawan aktif</p>
                 </div>
-                <div class="float-3 absolute right-8 top-16 rotate-2 rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm shadow-xl">
+                <div class="float-3 absolute right-8 top-1/2 rotate-2 rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm shadow-xl">
                     <p class="text-[10px] font-semibold uppercase tracking-widest text-indigo-300">Shift Sore</p>
                     <p class="mt-1 text-xl font-bold text-white">14:00 — 22:00</p>
                     <p class="mt-0.5 text-xs text-blue-200">4 karyawan aktif</p>
