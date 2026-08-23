@@ -88,7 +88,7 @@
             <!-- Main text -->
             <div class="relative z-10">
                 <h1 class="text-4xl font-extrabold leading-tight text-white lg:text-5xl">
-                    Jadwal Shift<br>yang Lebih<br><span class="text-blue-300">Terorganisir</span>
+                    Jadwal Shift<br>yg Lebih<br><span class="text-blue-300">Terorganisir</span>
                 </h1>
                 <p class="mt-4 max-w-sm text-base text-blue-200/90 leading-relaxed">
                     Pantau, kelola, dan optimalkan jadwal kerja seluruh tim Anda dalam satu platform yang intuitif dan modern.
