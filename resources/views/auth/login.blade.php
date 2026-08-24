@@ -91,6 +91,15 @@
             animation-delay: 0.3s;
             opacity: 0;
         }
+
+        .shift-cards-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 56px;
+            padding-top: 3.5rem;
+        }
     </style>
 </head>
 
@@ -104,14 +113,14 @@
 
             <!-- Decorative blobs -->
             <div class="pointer-events-none absolute inset-0">
-                <div class="float-1 absolute -left-16 -top-16 h-64 w-64 rounded-full bg-blue-500/20 blur-3xl"></div>
+                <div class="float-1 absolute -left-16 -top-28 h-64 w-64 rounded-full bg-blue-500/20 blur-3xl"></div>
                 <div class="float-2 absolute -bottom-20 right-10 h-80 w-80 rounded-full bg-indigo-500/25 blur-3xl">
                 </div>
                 <div class="float-3 absolute right-1/4 top-1/3 h-48 w-48 rounded-full bg-sky-400/15 blur-2xl"></div>
             </div>
 
             <!-- Floating shift cards -->
-            <div class="pointer-events-none absolute inset-y-0 right-12 flex flex-col justify-center items-end space-y-8 pt-24">
+            <div class="shift-cards-container pointer-events-none absolute inset-y-0 right-12" style="gap: 56px; padding-top: 3.5rem;">
                 <!-- 1. Shift Pagi (06:00 — 14:00) -->
                 <div class="float-1 rotate-6 rounded-2xl border border-white/10 bg-white/5 p-4 shadow-xl backdrop-blur-sm">
                     <div class="flex items-center space-x-2">
