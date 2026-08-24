@@ -20,38 +20,32 @@
         }
 
         @keyframes float-1 {
-
             0%,
             100% {
-                transform: translateY(0px) rotate(0deg);
+                transform: translateY(0px) rotate(6deg);
             }
-
             50% {
-                transform: translateY(-20px) rotate(5deg);
+                transform: translateY(-12px) rotate(9deg);
             }
         }
 
         @keyframes float-2 {
-
             0%,
             100% {
-                transform: translateY(0px) rotate(0deg);
+                transform: translateY(0px) rotate(2deg);
             }
-
             50% {
-                transform: translateY(-15px) rotate(-3deg);
+                transform: translateY(-10px) rotate(-1deg);
             }
         }
 
         @keyframes float-3 {
-
             0%,
             100% {
-                transform: translateY(0px) rotate(0deg);
+                transform: translateY(0px) rotate(4deg);
             }
-
             50% {
-                transform: translateY(-25px) rotate(8deg);
+                transform: translateY(-14px) rotate(7deg);
             }
         }
 
@@ -117,9 +111,9 @@
             </div>
 
             <!-- Floating shift cards -->
-            <div class="pointer-events-none absolute inset-0">
+            <div class="pointer-events-none absolute inset-y-0 right-12 flex flex-col justify-center items-end space-y-8 pt-24">
                 <!-- 1. Shift Pagi (06:00 — 14:00) -->
-                <div class="float-1 absolute right-12 top-36 rotate-6 rounded-2xl border border-white/10 bg-white/5 p-4 shadow-xl backdrop-blur-sm">
+                <div class="float-1 rotate-6 rounded-2xl border border-white/10 bg-white/5 p-4 shadow-xl backdrop-blur-sm">
                     <div class="flex items-center space-x-2">
                         <span class="h-2 w-2 rounded-full bg-sky-400 shadow-[0_0_8px_rgba(56,189,248,0.6)]"></span>
                         <p class="text-[10px] font-semibold uppercase tracking-widest text-sky-300">Shift Pagi</p>
@@ -129,7 +123,7 @@
                 </div>
 
                 <!-- 2. Shift Sore (14:00 — 22:00) -->
-                <div class="float-2 absolute right-8 top-[38%] rotate-2 rounded-2xl border border-white/10 bg-white/5 p-4 shadow-xl backdrop-blur-sm">
+                <div class="float-2 -mr-4 rotate-2 rounded-2xl border border-white/10 bg-white/5 p-4 shadow-xl backdrop-blur-sm">
                     <div class="flex items-center space-x-2">
                         <span class="h-2 w-2 rounded-full bg-indigo-400 shadow-[0_0_8px_rgba(129,140,248,0.6)]"></span>
                         <p class="text-[10px] font-semibold uppercase tracking-widest text-indigo-300">Shift Sore</p>
@@ -139,7 +133,7 @@
                 </div>
 
                 <!-- 3. Shift Malam (22:00 — 06:00) -->
-                <div class="float-3 absolute bottom-[20%] right-12 rotate-[4deg] rounded-2xl border border-white/10 bg-white/5 p-4 shadow-xl backdrop-blur-sm">
+                <div class="float-3 rotate-[4deg] rounded-2xl border border-white/10 bg-white/5 p-4 shadow-xl backdrop-blur-sm">
                     <div class="flex items-center space-x-2">
                         <span class="h-2 w-2 rounded-full bg-violet-400 shadow-[0_0_8px_rgba(167,139,250,0.6)]"></span>
                         <p class="text-[10px] font-semibold uppercase tracking-widest text-violet-300">Shift Malam</p>
