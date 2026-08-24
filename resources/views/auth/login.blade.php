@@ -119,27 +119,33 @@
             <!-- Floating shift cards -->
             <div class="pointer-events-none absolute inset-0">
                 <!-- 1. Shift Pagi (06:00 — 14:00) -->
-                <div
-                    class="float-1 absolute right-12 top-20 rotate-6 rounded-2xl border border-white/10 bg-white/5 p-4 shadow-xl backdrop-blur-sm">
-                    <p class="text-[10px] font-semibold uppercase tracking-widest text-sky-300">Shift Pagi</p>
-                    <p class="mt-1 text-xl font-bold text-white">06:00 — 14:00</p>
-                    <p class="mt-0.5 text-xs text-blue-200">3 karyawan aktif</p>
+                <div class="float-1 absolute right-12 top-36 rotate-6 rounded-2xl border border-white/10 bg-white/5 p-4 shadow-xl backdrop-blur-sm">
+                    <div class="flex items-center space-x-2">
+                        <span class="h-2 w-2 rounded-full bg-sky-400 shadow-[0_0_8px_rgba(56,189,248,0.6)]"></span>
+                        <p class="text-[10px] font-semibold uppercase tracking-widest text-sky-300">Shift Pagi</p>
+                    </div>
+                    <p class="mt-2 text-xl font-bold text-white">06:00 — 14:00</p>
+                    <p class="mt-1 text-xs text-blue-200/80">3 karyawan aktif</p>
                 </div>
 
                 <!-- 2. Shift Sore (14:00 — 22:00) -->
-                <div
-                    class="float-2 absolute right-8 top-1/4 rotate-2 rounded-2xl border border-white/10 bg-white/5 p-4 shadow-xl backdrop-blur-sm">
-                    <p class="text-[10px] font-semibold uppercase tracking-widest text-indigo-300">Shift Sore</p>
-                    <p class="mt-1 text-xl font-bold text-white">14:00 — 22:00</p>
-                    <p class="mt-0.5 text-xs text-blue-200">4 karyawan aktif</p>
+                <div class="float-2 absolute right-8 top-[38%] rotate-2 rounded-2xl border border-white/10 bg-white/5 p-4 shadow-xl backdrop-blur-sm">
+                    <div class="flex items-center space-x-2">
+                        <span class="h-2 w-2 rounded-full bg-indigo-400 shadow-[0_0_8px_rgba(129,140,248,0.6)]"></span>
+                        <p class="text-[10px] font-semibold uppercase tracking-widest text-indigo-300">Shift Sore</p>
+                    </div>
+                    <p class="mt-2 text-xl font-bold text-white">14:00 — 22:00</p>
+                    <p class="mt-1 text-xs text-blue-200/80">4 karyawan aktif</p>
                 </div>
 
                 <!-- 3. Shift Malam (22:00 — 06:00) -->
-                <div
-                    class="float-3 absolute bottom-1/3 right-12 rotate-[4deg] rounded-2xl border border-white/10 bg-white/5 p-4 shadow-xl backdrop-blur-sm">
-                    <p class="text-[10px] font-semibold uppercase tracking-widest text-violet-300">Shift Malam</p>
-                    <p class="mt-1 text-xl font-bold text-white">22:00 — 06:00</p>
-                    <p class="mt-0.5 text-xs text-blue-200">2 karyawan aktif</p>
+                <div class="float-3 absolute bottom-[20%] right-12 rotate-[4deg] rounded-2xl border border-white/10 bg-white/5 p-4 shadow-xl backdrop-blur-sm">
+                    <div class="flex items-center space-x-2">
+                        <span class="h-2 w-2 rounded-full bg-violet-400 shadow-[0_0_8px_rgba(167,139,250,0.6)]"></span>
+                        <p class="text-[10px] font-semibold uppercase tracking-widest text-violet-300">Shift Malam</p>
+                    </div>
+                    <p class="mt-2 text-xl font-bold text-white">22:00 — 06:00</p>
+                    <p class="mt-1 text-xs text-blue-200/80">2 karyawan aktif</p>
                 </div>
             </div>
 
