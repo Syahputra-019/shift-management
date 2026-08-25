@@ -137,7 +137,7 @@
                 {{-- Flash messages --}}
                 @if (session('success'))
                     <div class="mb-5 flex items-center space-x-3 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-emerald-800 shadow-sm">
-                        <svg class="h-5 w-5 flex-shrink-0 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="h-5 w-5 shrink-0 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                         </svg>
                         <span class="text-sm font-medium">{{ session('success') }}</span>
@@ -145,7 +145,7 @@
                 @endif
                 @if (session('error'))
                     <div class="mb-5 flex items-center space-x-3 rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-rose-800 shadow-sm">
-                        <svg class="h-5 w-5 flex-shrink-0 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="h-5 w-5 shrink-0 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
                         </svg>
                         <span class="text-sm font-medium">{{ session('error') }}</span>
@@ -153,7 +153,7 @@
                 @endif
 
                 {{-- Hero Banner --}}
-                <div class="relative mb-6 overflow-hidden rounded-2xl bg-gradient-to-r from-indigo-600 via-blue-600 to-sky-500 p-6 text-white shadow-lg shadow-blue-500/20">
+                <div class="relative mb-6 overflow-hidden rounded-2xl bg-linear-to-r from-indigo-600 via-blue-600 to-sky-500 p-6 text-white shadow-lg shadow-blue-500/20">
                     <div class="pointer-events-none absolute inset-0">
                         <div class="absolute -right-10 -top-10 h-48 w-48 rounded-full bg-white/5"></div>
                         <div class="absolute -bottom-8 right-32 h-32 w-32 rounded-full bg-white/5"></div>
@@ -334,7 +334,7 @@
                 x-transition:leave-end="opacity-0 scale-95"
                 class="relative z-10 w-full max-w-md overflow-hidden rounded-2xl bg-white shadow-2xl">
 
-                <div class="h-1 w-full bg-gradient-to-r from-rose-500 to-pink-500"></div>
+                <div class="h-1 w-full bg-linear-to-r from-rose-500 to-pink-500"></div>
                 <div class="p-6">
                     <div class="flex items-start space-x-4">
                         <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-rose-100">
